@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Provue · Voice · Translate · Download</title>
+  <title>Provue · अपनी वॉइस · Chat · Call · Create</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -15,12 +15,6 @@
       padding: 1.5rem;
     }
     .container { max-width: 1400px; margin: 0 auto; }
-    .glass {
-      background: rgba(15, 25, 45, 0.65);
-      backdrop-filter: blur(16px);
-      border-radius: 2rem;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -44,12 +38,7 @@
     }
     .logo p { font-size: 0.8rem; color: #94a3b8; }
     .badge-group { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-    .pill {
-      background: #1e293b;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-    }
+    .pill { background: #1e293b; padding: 0.4rem 1rem; border-radius: 40px; font-size: 0.8rem; }
     .btn-outline, .btn-primary {
       padding: 0.5rem 1.2rem;
       border-radius: 40px;
@@ -57,21 +46,12 @@
       cursor: pointer;
       transition: 0.2s;
     }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #475569;
-      color: #e2e8f0;
-    }
-    .btn-primary {
-      background: linear-gradient(95deg, #3b82f6, #8b5cf6);
-      border: none;
-      color: white;
-      box-shadow: 0 4px 12px rgba(59,130,246,0.3);
-    }
+    .btn-outline { background: transparent; border: 1px solid #475569; color: #e2e8f0; }
+    .btn-primary { background: linear-gradient(95deg, #3b82f6, #8b5cf6); border: none; color: white; box-shadow: 0 4px 12px rgba(59,130,246,0.3); }
     .btn-primary:hover, .btn-outline:hover { transform: scale(1.02); opacity: 0.9; }
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 1.8rem;
       margin-bottom: 2rem;
     }
@@ -90,18 +70,26 @@
       background: #0a0f1a;
       border-radius: 1.2rem;
       padding: 0.8rem;
-      height: 260px;
+      height: 280px;
       overflow-y: auto;
       margin-bottom: 0.8rem;
     }
-    .message { display: flex; gap: 0.6rem; margin-bottom: 0.7rem; }
+    .message { display: flex; gap: 0.6rem; margin-bottom: 0.7rem; align-items: flex-start; }
     .message.user { justify-content: flex-end; }
     .message.user .bubble { background: #3b82f6; border-radius: 1.2rem 1.2rem 0.2rem 1.2rem; }
     .message.bot .bubble { background: #1e293b; border-radius: 1.2rem 1.2rem 1.2rem 0.2rem; }
-    .bubble { max-width: 80%; padding: 0.5rem 1rem; font-size: 0.85rem; }
-    .chat-input-area { display: flex; gap: 0.5rem; align-items: center; }
-    .chat-input-area input { flex: 1; background: #0f172a; border: 1px solid #334155; border-radius: 2rem; padding: 0.6rem 1rem; color: white; }
-    .voice-btn { background: #334155; border: none; border-radius: 2rem; width: 40px; cursor: pointer; }
+    .bubble { max-width: 80%; padding: 0.5rem 1rem; font-size: 0.85rem; word-break: break-word; }
+    .voice-msg { display: flex; align-items: center; gap: 0.5rem; background: #0f172a; border-radius: 2rem; padding: 0.3rem 0.8rem; cursor: pointer; }
+    .voice-msg i { font-size: 1rem; }
+    .chat-input-area { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+    .chat-input-area input { flex: 1; background: #0f172a; border: 1px solid #334155; border-radius: 2rem; padding: 0.6rem 1rem; color: white; min-width: 120px; }
+    .icon-btn { background: #334155; border: none; border-radius: 2rem; width: 40px; height: 40px; cursor: pointer; color: white; }
+    .icon-btn.recording { background: #ef4444; animation: pulse 1s infinite; }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
+    .translate-bar { display: flex; gap: 0.5rem; margin: 0.8rem 0 0.5rem; align-items: center; flex-wrap: wrap; }
+    select, .download-btn {
+      background: #0f172a; border: 1px solid #334155; border-radius: 2rem; padding: 0.3rem 0.8rem; color: white; cursor: pointer;
+    }
     .call-preview { background: #0a0f1a; border-radius: 1.2rem; padding: 1rem; text-align: center; }
     .avatar { background: linear-gradient(145deg, #3b82f6, #8b5cf6); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.8rem; font-size: 2rem; cursor: pointer; }
     .call-status { font-size: 0.75rem; color: #94a3b8; margin: 0.3rem 0; }
@@ -112,11 +100,10 @@
     .wave { display: flex; justify-content: center; gap: 5px; height: 60px; margin: 0.5rem 0; }
     .wave span { width: 6px; background: #a78bfa; border-radius: 3px; animation: sound 0.8s infinite alternate; }
     @keyframes sound { 0% { height: 8px; } 100% { height: 35px; } }
-    .ai-input-group { display: flex; gap: 0.6rem; margin-top: 0.8rem; }
-    .ai-input-group input { flex: 1; background: #0f172a; border: 1px solid #334155; border-radius: 2rem; padding: 0.6rem 1rem; color: white; }
-    .translate-bar { display: flex; gap: 0.5rem; margin: 1rem 0 0.5rem; align-items: center; flex-wrap: wrap; }
-    .translate-bar select { background: #0f172a; border: 1px solid #334155; border-radius: 2rem; padding: 0.3rem 0.8rem; color: white; }
-    .download-btn { background: #1e293b; border: none; border-radius: 2rem; padding: 0.3rem 0.8rem; color: white; cursor: pointer; }
+    .ai-input-group { display: flex; gap: 0.6rem; margin-top: 0.8rem; flex-wrap: wrap; }
+    .ai-input-group input { flex: 2; background: #0f172a; border: 1px solid #334155; border-radius: 2rem; padding: 0.6rem 1rem; color: white; }
+    .record-group { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem; justify-content: center; }
+    .audio-player { margin-top: 0.5rem; }
     .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
     .info-card { padding: 1.3rem; background: rgba(12,20,35,0.6); backdrop-filter: blur(8px); border-radius: 1.5rem; }
     .stars i { color: #fbbf24; }
@@ -129,7 +116,7 @@
 <body>
 <div class="container">
   <div class="navbar">
-    <div class="logo"><h1>Provue</h1><p>Chat, Call & Create · AI Studio</p></div>
+    <div class="logo"><h1>Provue</h1><p>Chat, Call & Create · अपनी वॉइस जोड़ें</p></div>
     <div class="badge-group">
       <div class="pill"><i class="fas fa-shopping-cart"></i> In-app purchases</div>
       <button class="btn-outline" id="installBtn"><i class="fas fa-download"></i> Install</button>
@@ -138,32 +125,33 @@
   </div>
 
   <div class="features-grid">
-    <!-- CHAT with voice & translate & download -->
+    <!-- CHAT with voice recording & send -->
     <div class="feature-card">
-      <div class="feature-header"><i class="fas fa-comment-dots"></i><h3>Live Chat</h3></div>
+      <div class="feature-header"><i class="fas fa-comment-dots"></i><h3>Live Chat + Voice Message</h3></div>
       <div class="chat-window" id="chatWindow">
-        <div class="message bot"><div class="bubble">✨ Just dropped a new AI beat! Try voice input 🎤</div></div>
+        <div class="message bot"><div class="bubble">✨ रिकॉर्ड अपनी वॉइस और भेजें 🎤</div></div>
         <div class="message user"><div class="bubble">Hay</div></div>
-        <div class="message bot"><div class="bubble">🎙️ AI: Use the mic button or type anything. I can translate too!</div></div>
       </div>
       <div class="chat-input-area">
         <input type="text" id="chatInput" placeholder="Type a message...">
-        <button class="voice-btn" id="voiceChatBtn"><i class="fas fa-microphone"></i></button>
+        <button class="icon-btn" id="voiceChatBtn"><i class="fas fa-microphone"></i></button>
+        <button class="icon-btn" id="recordVoiceMsgBtn"><i class="fas fa-circle"></i> 🎙️</button>
         <button id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
       </div>
+      <div id="voiceMsgStatus" style="font-size:0.7rem; margin-top:0.3rem; color:#a78bfa;"></div>
       <div class="translate-bar">
         <select id="targetLang">
           <option value="en">English</option><option value="hi">हिन्दी</option><option value="es">Español</option>
           <option value="fr">Français</option><option value="de">Deutsch</option><option value="zh">中文</option>
           <option value="ar">العربية</option><option value="ru">Русский</option>
         </select>
-        <button class="download-btn" id="translateChatBtn"><i class="fas fa-language"></i> Translate last message</button>
+        <button class="download-btn" id="translateChatBtn"><i class="fas fa-language"></i> Translate last msg</button>
         <button class="download-btn" id="downloadChatBtn"><i class="fas fa-download"></i> Download chat</button>
       </div>
       <div style="margin-top:0.6rem; font-size:0.7rem; text-align:center;"><i class="fas fa-lock"></i> end-to-end encrypted</div>
     </div>
 
-    <!-- CALL (same as before, fully interactive) -->
+    <!-- HD Calls (same as before) -->
     <div class="feature-card">
       <div class="feature-header"><i class="fas fa-phone-alt"></i><h3>HD Calls</h3></div>
       <div class="call-preview">
@@ -179,133 +167,205 @@
       <div style="margin-top:0.7rem; font-size:0.7rem; text-align:center;">⭐ crystal clear AI noise cancellation</div>
     </div>
 
-    <!-- AUDIO CREATE with voice input, translation, download -->
+    <!-- AUDIO CREATE with own voice record & upload -->
     <div class="feature-card">
-      <div class="feature-header"><i class="fas fa-head-side-vr"></i><h3>Audio Create</h3></div>
+      <div class="feature-header"><i class="fas fa-head-side-vr"></i><h3>Audio Create + अपनी वॉइस</h3></div>
       <div class="audio-box">
         <div class="wave" id="waveform"><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="ai-input-group">
-          <input type="text" id="audioPrompt" placeholder="Describe sound / AI voice ..." value="एक समय की बात है, एक गाँव में रामू ना">
-          <button class="voice-btn" id="voiceAudioBtn"><i class="fas fa-microphone"></i></button>
-          <button class="generate-btn" id="generateAudio"><i class="fas fa-magic"></i> Generate</button>
+          <input type="text" id="audioPrompt" placeholder="Describe sound or use your voice..." value="एक समय की बात है, एक गाँव में रामू ना">
+          <button class="icon-btn" id="voiceAudioBtn"><i class="fas fa-microphone"></i></button>
+          <button class="generate-btn btn-primary" id="generateAudio"><i class="fas fa-magic"></i> Generate</button>
         </div>
-        <div class="translate-bar" style="justify-content: center;">
+        <!-- Own voice recording section -->
+        <div class="record-group">
+          <button class="icon-btn" id="startOwnRecordBtn" style="background:#8b5cf6;"><i class="fas fa-microphone-alt"></i> रिकॉर्ड अपनी वॉइस</button>
+          <button class="icon-btn" id="stopOwnRecordBtn" disabled><i class="fas fa-stop"></i> Stop</button>
+          <button class="download-btn" id="playOwnVoiceBtn" disabled><i class="fas fa-play"></i> सुनें</button>
+          <button class="download-btn" id="downloadOwnVoiceBtn" disabled><i class="fas fa-download"></i> Download</button>
+        </div>
+        <div id="ownVoiceStatus" style="font-size:0.7rem; margin-top:0.5rem; color:#a78bfa;"></div>
+        <div class="translate-bar" style="justify-content: center; margin-top:0.8rem;">
           <button class="download-btn" id="translateAudioBtn"><i class="fas fa-language"></i> Translate prompt</button>
-          <button class="download-btn" id="downloadAudioBtn"><i class="fas fa-download"></i> Download audio (simulated)</button>
+          <button class="download-btn" id="downloadAudioBtn"><i class="fas fa-download"></i> Download AI audio (sim)</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- original Provue info cards -->
+  <!-- Provue info cards -->
   <div class="info-grid">
-    <div class="info-card"><div style="font-weight:700;">📢 What's new</div><div style="font-size:0.7rem;">Last updated Apr 5, 2026</div><div>✨ Voice input, live translation, download chat/audio, AI voice cloning</div></div>
+    <div class="info-card"><div style="font-weight:700;">📢 What's new</div><div style="font-size:0.7rem;">Last updated Apr 5, 2026</div><div>✨ अपनी वॉइस रिकॉर्ड करें, भेजें, डाउनलोड करें, और AI के साथ मिलाएँ</div></div>
     <div class="info-card"><div style="font-weight:700;">⭐ Rate this app</div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><a href="#" id="reviewBtn" style="color:#60a5fa;">Write a review →</a></div>
     <div class="info-card"><div style="font-weight:700;">📱 App support & beta</div><div class="beta-row"><div class="beta-icons"><span><i class="fas fa-gamepad"></i> Games</span><span><i class="fas fa-th"></i> Apps</span><span><i class="fas fa-search"></i> Search</span><span><i class="fas fa-book"></i> Books</span></div><div class="beta-tag">In the beta 🧪</div></div></div>
   </div>
-  <footer>Provue · Voice · Translate · Download · © 2026</footer>
+  <footer>Provue · अपनी वॉइस जोड़ें · रिकॉर्ड, भेजें, डाउनलोड करें · © 2026</footer>
 </div>
 
 <script>
-  // ------------------- CHAT GLOBALS -------------------
+  // ------------------- CHAT (text + voice message recording) -------------------
   const chatWindow = document.getElementById('chatWindow');
   const chatInput = document.getElementById('chatInput');
   const sendBtn = document.getElementById('sendChatBtn');
   const voiceChatBtn = document.getElementById('voiceChatBtn');
-  const targetLang = document.getElementById('targetLang');
-  let recognition;
+  const recordVoiceMsgBtn = document.getElementById('recordVoiceMsgBtn');
+  const voiceMsgStatus = document.getElementById('voiceMsgStatus');
+  let mediaRecorder;
+  let audioChunks = [];
+  let isRecording = false;
 
-  function addMessage(text, sender) {
+  function addMessage(text, sender, isVoice = false, audioUrl = null) {
     const msgDiv = document.createElement('div');
     msgDiv.className = `message ${sender}`;
     const bubble = document.createElement('div');
     bubble.className = 'bubble';
-    bubble.innerText = text;
+    if (isVoice && audioUrl) {
+      const audioElem = document.createElement('audio');
+      audioElem.controls = true;
+      audioElem.src = audioUrl;
+      audioElem.style.maxWidth = '200px';
+      bubble.appendChild(audioElem);
+    } else {
+      bubble.innerText = text;
+    }
     msgDiv.appendChild(bubble);
     chatWindow.appendChild(msgDiv);
     chatWindow.scrollTop = chatWindow.scrollHeight;
-    return bubble;
   }
 
+  // Send text message
   sendBtn.addEventListener('click', () => {
     const msg = chatInput.value.trim();
     if (!msg) return;
     addMessage(msg, 'user');
     chatInput.value = '';
-    setTimeout(() => {
-      let reply = '';
-      if (msg.toLowerCase().includes('translate')) reply = '🌍 Use the translate button! Select a language.';
-      else if (msg.toLowerCase().includes('voice')) reply = '🎤 Try the mic button to speak your message.';
-      else reply = '✨ Got it! You can download chat history with the button below.';
-      addMessage(reply, 'bot');
-    }, 700);
+    setTimeout(() => addMessage('✨ आप अपनी वॉइस भी रिकॉर्ड कर सकते हैं 🎙️', 'bot'), 700);
   });
   chatInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendBtn.click(); });
 
-  // Voice recognition for chat
-  if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+  // Voice to text (speech recognition)
+  if ('webkitSpeechRecognition' in window) {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    recognition = new SpeechRecognition();
+    const recognition = new SpeechRecognition();
     recognition.continuous = false;
     recognition.interimResults = false;
-    recognition.lang = 'en-US';
+    recognition.lang = 'hi-IN';
     voiceChatBtn.addEventListener('click', () => {
       recognition.start();
-      voiceChatBtn.style.color = '#a78bfa';
+      voiceChatBtn.style.background = '#a78bfa';
     });
     recognition.onresult = (event) => {
       const spoken = event.results[0][0].transcript;
       chatInput.value = spoken;
-      voiceChatBtn.style.color = '';
+      voiceChatBtn.style.background = '#334155';
       sendBtn.click();
     };
-    recognition.onerror = () => { voiceChatBtn.style.color = ''; alert('Voice not recognized, try again.'); };
-  } else {
-    voiceChatBtn.disabled = true;
-    voiceChatBtn.title = "Voice not supported in this browser";
+    recognition.onerror = () => { voiceChatBtn.style.background = '#334155'; alert('Voice not recognized'); };
+  } else { voiceChatBtn.disabled = true; }
+
+  // Record own voice message (for chat)
+  async function startRecordingVoiceMsg() {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    mediaRecorder = new MediaRecorder(stream);
+    audioChunks = [];
+    mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+    mediaRecorder.onstop = () => {
+      const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+      const audioUrl = URL.createObjectURL(audioBlob);
+      addMessage('🎤 Voice message', 'user', true, audioUrl);
+      voiceMsgStatus.innerText = '✓ Voice message sent';
+      stream.getTracks().forEach(track => track.stop());
+      // also provide download link for the recorded voice
+      const a = document.createElement('a');
+      a.href = audioUrl;
+      a.download = `voice_msg_${Date.now()}.wav`;
+      a.click();
+      URL.revokeObjectURL(audioUrl);
+    };
+    mediaRecorder.start();
+    isRecording = true;
+    recordVoiceMsgBtn.style.background = '#ef4444';
+    voiceMsgStatus.innerText = '🔴 Recording... click again to stop';
   }
 
-  // Translate last message (simulated with mock API)
-  document.getElementById('translateChatBtn').addEventListener('click', () => {
-    const lastMsg = chatWindow.lastChild;
-    if (!lastMsg || !lastMsg.querySelector('.bubble')) { alert("No message to translate"); return; }
-    const originalText = lastMsg.querySelector('.bubble').innerText;
-    const lang = targetLang.value;
-    // Simulate translation (in real app, call Google Translate API)
-    const fakeTranslations = {
-      en: (t) => `[EN] ${t}`, hi: (t) => `[हिन्दी] ${t}`, es: (t) => `[ES] ${t}`, fr: (t) => `[FR] ${t}`,
-      de: (t) => `[DE] ${t}`, zh: (t) => `[中文] ${t}`, ar: (t) => `[العربية] ${t}`, ru: (t) => `[RU] ${t}`
+  function stopRecordingVoiceMsg() {
+    if (mediaRecorder && isRecording) {
+      mediaRecorder.stop();
+      isRecording = false;
+      recordVoiceMsgBtn.style.background = '#334155';
+      voiceMsgStatus.innerText = '✓ Recorded, sending...';
+    }
+  }
+
+  recordVoiceMsgBtn.addEventListener('click', () => {
+    if (!isRecording) startRecordingVoiceMsg();
+    else stopRecordingVoiceMsg();
+  });
+
+  // ------------------- AUDIO CREATE: own voice recording (separate) -------------------
+  let ownMediaRecorder;
+  let ownAudioChunks = [];
+  let ownRecording = false;
+  let recordedBlob = null;
+  const startOwnBtn = document.getElementById('startOwnRecordBtn');
+  const stopOwnBtn = document.getElementById('stopOwnRecordBtn');
+  const playOwnBtn = document.getElementById('playOwnVoiceBtn');
+  const downloadOwnBtn = document.getElementById('downloadOwnVoiceBtn');
+  const ownStatus = document.getElementById('ownVoiceStatus');
+
+  async function startOwnRecording() {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    ownMediaRecorder = new MediaRecorder(stream);
+    ownAudioChunks = [];
+    ownMediaRecorder.ondataavailable = e => ownAudioChunks.push(e.data);
+    ownMediaRecorder.onstop = () => {
+      recordedBlob = new Blob(ownAudioChunks, { type: 'audio/wav' });
+      const url = URL.createObjectURL(recordedBlob);
+      ownStatus.innerHTML = `<i class="fas fa-check"></i> Voice recorded! Click "सुनें" to play.`;
+      playOwnBtn.disabled = false;
+      downloadOwnBtn.disabled = false;
+      stream.getTracks().forEach(t => t.stop());
     };
-    const translator = fakeTranslations[lang] || fakeTranslations.en;
-    const translated = translator(originalText);
-    addMessage(`🔄 Translated (${lang}): ${translated}`, 'bot');
+    ownMediaRecorder.start();
+    ownRecording = true;
+    startOwnBtn.disabled = true;
+    stopOwnBtn.disabled = false;
+    ownStatus.innerText = '🔴 Recording your voice... click Stop';
+  }
+
+  function stopOwnRecording() {
+    if (ownMediaRecorder && ownRecording) {
+      ownMediaRecorder.stop();
+      ownRecording = false;
+      startOwnBtn.disabled = false;
+      stopOwnBtn.disabled = true;
+    }
+  }
+
+  startOwnBtn.addEventListener('click', startOwnRecording);
+  stopOwnBtn.addEventListener('click', stopOwnRecording);
+
+  playOwnBtn.addEventListener('click', () => {
+    if (recordedBlob) {
+      const url = URL.createObjectURL(recordedBlob);
+      const audio = new Audio(url);
+      audio.play();
+      setTimeout(() => URL.revokeObjectURL(url), 5000);
+    } else alert('No voice recorded yet');
   });
 
-  // Download chat as .txt
-  document.getElementById('downloadChatBtn').addEventListener('click', () => {
-    const messages = [];
-    document.querySelectorAll('#chatWindow .bubble').forEach(b => messages.push(b.innerText));
-    const chatLog = messages.join('\n\n');
-    const blob = new Blob([chatLog], {type: 'text/plain'});
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = `provue_chat_${new Date().toISOString()}.txt`;
-    a.click();
-    URL.revokeObjectURL(a.href);
+  downloadOwnBtn.addEventListener('click', () => {
+    if (recordedBlob) {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(recordedBlob);
+      a.download = `my_voice_${Date.now()}.wav`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+      ownStatus.innerHTML = '✓ Voice downloaded!';
+    } else alert('Record your voice first');
   });
 
-  // ------------------- CALL SIMULATION -------------------
-  let callActive = false;
-  const callStatusSpan = document.getElementById('callStatus');
-  document.querySelector('.avatar').addEventListener('click', () => {
-    if (!callActive) { callActive = true; callStatusSpan.innerHTML = '🔵 Connected · 00:24'; callStatusSpan.style.color = '#4ade80'; alert("📞 Call connected with Alex Rivera – AI noise cancellation active"); }
-    else alert("Already in call");
-  });
-  document.getElementById('endCall').addEventListener('click', () => { if(callActive) { callActive=false; callStatusSpan.innerHTML='⏵ Tap avatar to start call'; callStatusSpan.style.color='#94a3b8'; alert("Call ended."); } else alert("No active call"); });
-  document.getElementById('muteCall').addEventListener('click', () => { if(callActive) alert("🔇 Microphone muted"); else alert("Start call first"); });
-  document.getElementById('speakerCall').addEventListener('click', () => { if(callActive) alert("🔊 Speaker toggled"); else alert("No active call"); });
-
-  // ------------------- AUDIO CREATE with voice, translate, download -------------------
+  // ------------------- AI Audio generation (text to speech) -------------------
   const audioPrompt = document.getElementById('audioPrompt');
   const voiceAudioBtn = document.getElementById('voiceAudioBtn');
   const generateBtn = document.getElementById('generateAudio');
@@ -313,17 +373,16 @@
   let audioRecognition;
   if ('webkitSpeechRecognition' in window) {
     audioRecognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    audioRecognition.continuous = false;
-    audioRecognition.lang = 'en-US';
+    audioRecognition.lang = 'hi-IN';
     voiceAudioBtn.addEventListener('click', () => {
       audioRecognition.start();
-      voiceAudioBtn.style.color = '#a78bfa';
+      voiceAudioBtn.style.background = '#a78bfa';
     });
     audioRecognition.onresult = (e) => {
       audioPrompt.value = e.results[0][0].transcript;
-      voiceAudioBtn.style.color = '';
+      voiceAudioBtn.style.background = '#334155';
     };
-    audioRecognition.onerror = () => { voiceAudioBtn.style.color = ''; alert('Voice input failed'); };
+    audioRecognition.onerror = () => { voiceAudioBtn.style.background = '#334155'; };
   } else { voiceAudioBtn.disabled = true; }
 
   function animateWave(active) {
@@ -332,43 +391,5 @@
 
   generateBtn.addEventListener('click', () => {
     let prompt = audioPrompt.value.trim();
-    if (!prompt) prompt = "Create futuristic melody";
-    animateWave(true);
-    const utterance = new SpeechSynthesisUtterance(prompt);
-    utterance.rate = 0.9;
-    utterance.onend = () => { animateWave(false); alert(`🎵 AI Audio generated for: "${prompt}"\n(Full quality WAV export available)`); };
-    utterance.onerror = () => { animateWave(false); alert("AI audio simulation ready"); };
-    speechSynthesis.speak(utterance);
-  });
-
-  // Translate audio prompt
-  document.getElementById('translateAudioBtn').addEventListener('click', () => {
-    const original = audioPrompt.value;
-    if (!original) { alert("Enter prompt first"); return; }
-    const lang = targetLang.value;
-    const fakeTrans = { en: t=>`${t}`, hi: t=>`${t} (हिंदी अनुवाद)`, es: t=>`${t} (español)`, fr: t=>`${t} (français)`, de: t=>`${t} (Deutsch)`, zh: t=>`${t} (中文)`, ar: t=>`${t} (العربية)`, ru: t=>`${t} (русский)` };
-    const translated = (fakeTrans[lang] || fakeTrans.en)(original);
-    audioPrompt.value = translated;
-    alert(`Prompt translated to ${lang}: ${translated}`);
-  });
-
-  // Download simulated audio (text file with metadata)
-  document.getElementById('downloadAudioBtn').addEventListener('click', () => {
-    const promptText = audioPrompt.value;
-    const content = `Provue AI Audio Generation\nPrompt: ${promptText}\nGenerated at: ${new Date().toLocaleString()}\nFormat: simulated WAV (AI studio would export high-quality file)`;
-    const blob = new Blob([content], {type: 'text/plain'});
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = `provue_audio_${Date.now()}.txt`;
-    a.click();
-    URL.revokeObjectURL(a.href);
-  });
-
-  // ------------------- UI extras -------------------
-  document.getElementById('installBtn').addEventListener('click', () => alert("📲 Install Provue PWA – add to home screen"));
-  document.getElementById('openAppBtn').addEventListener('click', () => alert("🚀 Launching full Provue experience"));
-  document.getElementById('reviewBtn').addEventListener('click', (e) => { e.preventDefault(); alert("⭐ Rate 5 stars! Your feedback matters."); });
-  document.querySelectorAll('.beta-icons span').forEach(span => span.addEventListener('click', () => alert(`🔍 Explore ${span.innerText} – coming soon`)));
-</script>
-</body>
-</html>
+    if (!prompt) prompt = "Create beautiful music";
+    animateWave(true)
